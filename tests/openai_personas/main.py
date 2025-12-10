@@ -29,7 +29,7 @@ for x in os.listdir(os.path.join(script_dir, "personas")):
 # Mediator Agent Definition
 secret_yes_man = ChatAgent(
     chat_client=chat_client, 
-    instructions="Ask Mr. Yes and Mr. what they say about the user's questions. Relay their answers back to the user.", 
+    instructions="Ask Mr. Yes and Mr. No what they say about the user's questions. Relay their answers back to the user.", 
     name="Mediator Agent", 
     tools=chats)
 
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     args = argparser.parse_args()
     
     if args.test:
-        result = asyncio.run(secret_yes_man.run("Just ask the yes man no matter what I say."))
+        result = asyncio.run(secret_yes_man.run("Just ask Mr. Yes no matter what I say."))
         print(result.to_json())
         exit()
     
