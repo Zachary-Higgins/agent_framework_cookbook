@@ -1,28 +1,35 @@
 # Agent Framework Cookbook
 
-Personal, unofficial collection of Microsoft `agent_framework` examples, evaluators, and experiments. Use this README as a directory when you explore or add new recipes.
+Personal, unofficial collection of Microsoft `agent_framework` examples, evaluators, and experiments. Use this README as the directory of recipes.
 
 ## Quick Start
-- Requires Python 3.10+ (virtual env recommended).
-- Install shared deps:
+1. **Python 3.10+** – create/activate a virtual environment.
+2. **Bootstrap env vars** – copy `.env.template` → `.env` and fill the required keys listed below.
+3. **Install dependencies**
 
-```bash
-pip install -r requirements.txt
-```
+	```bash
+	pip install -r requirements.txt
+	```
 
-- Create your `.env`:
-	1. Copy `.env.template` to `.env`.
-	2. Fill in provider keys (OpenAI, Azure, etc.) before running any samples/tests.
+4. **Run tests or samples**
 
-### Run Tests
-```bash
-pytest -q
-```
+	```bash
+	pytest -q
+	python samples/opanai_basic/main.py
+	```
 
-### Run the sample agent
-```bash
-python samples/opanai_basic/main.py
-```
+## Environment Variables (local + CI)
+`pytest` and the manual GitHub Actions workflow (`.github/workflows/manual-pytest.yml`) share the same configuration. Define these keys in your local `.env` and mirror them as GitHub Action Secrets/Variables (`Settings → Secrets and variables → Actions`).
+
+| Scope | Name | Example | Purpose |
+| --- | --- | --- | --- |
+| Secret | `OPENAI_KEY` | `OPENAI_KEY=sk-...` | Authenticates requests to the OpenAI API (tests & samples will fail without this).
+| Variable | `OPENAI_MODEL` | `OPENAI_MODEL=gpt-5-nano` | Model identifier used by evaluator/samples; tweak as needed.
+| Variable (optional) | `ENABLE_OTEL` | `ENABLE_OTEL=false` | Toggle tracing; defaults to `false` for local pytest runs.
+
+**GitHub Actions:** after secrets/variables are set, trigger **Manual Pytest** in the Actions tab to run `pip install -r requirements.txt` followed by `pytest -vv` on Ubuntu.
+
+**Local runs:** ensure the same variables exist in `.env`; `pytest` will load them via your preferred env loader (e.g., `python-dotenv`).
 
 ## Directory Guide
 
