@@ -69,3 +69,7 @@ Some useful links outside of this repository.
 - Keep each recipe or evaluator focused on one idea; add a short comment describing intent.
 - Update this README when you add a new directory or runnable entry point.
 - See `.github/copilot_instructions.md` for workflow expectations.
+
+
+## TODO
+- Implement this: https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/observability?view=foundry-classic
