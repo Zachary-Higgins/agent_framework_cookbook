@@ -1,3 +1,5 @@
+[![Manual Pytest](https://github.com/Zachary-Higgins/agent_framework_cookbook/actions/workflows/manual-pytest.yml/badge.svg)](https://github.com/Zachary-Higgins/agent_framework_cookbook/actions/workflows/manual-pytest.yml)
+
 # Agent Framework Cookbook
 
 Personal, unofficial collection of Microsoft `agent_framework` examples, evaluators, and experiments. Use this README as the directory of recipes.
